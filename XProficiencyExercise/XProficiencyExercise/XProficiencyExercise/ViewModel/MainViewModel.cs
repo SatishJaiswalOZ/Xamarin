@@ -1,46 +1,62 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XProficiencyExercise.Model;
 
 namespace XProficiencyExercise.ViewModel
 {
-    class MainViewModel:INotifyPropertyChanged
+    class MainViewModel : INotifyPropertyChanged
     {
+        #region Attributes
+        private FactsData model = new FactsData();
+        private string title = string.Empty;
+        #endregion
+
+        #region Constructor
         public MainViewModel()
         {
-            Title = "About Canada";
+            Facts mdata = model.GetFacts(true);
+            Title = mdata.title;
+
             ChangeTextCommand = new Command(() =>
             {
+                //Just for testing. Actual code will come.
                 Title = "Satish";
             });
 
-            for(int i=0;i<6;i++)
+            foreach (var fact in mdata.rows)
             {
-                Fact f = new Fact() {
-                    Description = "Hello dasdsadsadsadsadasdsadadssxczcasdsaxz " + i.ToString(),
-                    ImageUrl = "http://3.bp.blogspot.com/__mokxbTmuJM/RnWuJ6cE9cI/AAAAAAAAATw/6z3m3w9JDiU/s400/019843_31.jpg",
-                    Title = "Canada xzcsarefczdcsefdczxcsdgrefascxzcsderewdczxc sdgewfedsacxsefewfeczxcxzcgvrgfeasczcsdgfewf" + i.ToString() };
-                Facts.Add(f);
+                if (!string.IsNullOrEmpty(fact.title))
+                {
+                    if (!string.IsNullOrEmpty(fact.description) && !string.IsNullOrEmpty(fact.imageHref))
+                    {
+                        Fact f = new Fact()
+                        {
+                            description = fact.description,
+                            imageHref = fact.imageHref,
+                            title = fact.title
+                        };
+                        Facts.Add(f);
+                    }
+                }
             }
         }
+        #endregion
 
-        private string title = string.Empty;
+        #region Properties
+        /// <summary>
+        /// Get data about facts
+        /// </summary>
+        public ObservableCollection<Fact> Facts { get; private set; } = new ObservableCollection<Fact>();
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void RaisedPropertyChanged([CallerMemberName] string caller = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(caller));
-            }
-        }
-
+        /// <summary>
+        /// Get title
+        /// </summary>
+        //Setter infact is not required for now
         public string Title
         {
             get { return title; }
@@ -50,12 +66,20 @@ namespace XProficiencyExercise.ViewModel
                 RaisedPropertyChanged();
             }
         }
+        #endregion
+
+        #region Others
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void RaisedPropertyChanged([CallerMemberName] string caller = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(caller));
+        }
 
         public ICommand ChangeTextCommand
         {
             get;
-        }
-
-        public ObservableCollection<Fact> Facts { get; set; } = new ObservableCollection<Fact>();
+        } 
+        #endregion
     }
 }

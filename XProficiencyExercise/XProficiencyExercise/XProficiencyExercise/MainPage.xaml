@@ -35,15 +35,26 @@
                                         TextColor="#437fab" 
                                         FontAttributes="Bold" 
                                         FontSize="Small" 
-                                        Text="{Binding Title}"/>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label 
-                                            Text="{Binding Description}" 
-                                            FontSize="Micro"/>
-                                        <Image                    
-                                            Source="{Binding ImageUrl}"  
-                                            Aspect="AspectFill"/>
-                                    </StackLayout>
+                                        Text="{Binding title}"/>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="60"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0"
+                                               VerticalOptions="FillAndExpand"
+                                               HorizontalOptions="FillAndExpand"
+                                               Text="{Binding description}" 
+                                               FontSize="Micro"/>
+                                        <Image Grid.Column="1"  
+                                               Source="{Binding imageHref}"  
+                                               Aspect="AspectFit"
+                                               WidthRequest="60"
+                                               HeightRequest="60" />
+                                    </Grid>
                                 </StackLayout>
                             </ContentView>
                         </ViewCell>
