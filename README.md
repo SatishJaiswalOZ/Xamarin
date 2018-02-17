@@ -26,3 +26,5 @@ Notes:
 
   7.Took time because of horribly slow PC due to Visual Studio Community 2017 + Xamarin + Emulator & engagement in fresh arrival to    
     Melbourne so early settlement issues.
+    
+  8.Please restore nuget to resolve any dependencies & use Emulator - Android 7.1.1 API Level 25
