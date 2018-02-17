@@ -6,6 +6,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Android.Content;
+using FFImageLoading.Forms.Droid;
+using FFImageLoading;
 
 namespace XProficiencyExercise.Droid
 {
@@ -20,7 +23,23 @@ namespace XProficiencyExercise.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            CachedImageRenderer.Init(true);
             LoadApplication(new App());
+        }
+
+        public override void OnTrimMemory([GeneratedEnum] TrimMemory level)
+        {
+            ImageService.Instance.InvalidateMemoryCache();
+            GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced);
+            base.OnTrimMemory(level);
+        }
+
+        protected override void JavaFinalize()
+        {
+            //SetImageDrawable(null);
+            //SetImageBitmap(null);
+            //ImageService.Instance.InvalidateCacheEntryAsync(this.DataLocationUri, FFImageLoading.Cache.CacheType.Memory);
+            base.JavaFinalize();
         }
     }
 }

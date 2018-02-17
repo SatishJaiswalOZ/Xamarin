@@ -15,7 +15,9 @@ namespace XProficiencyExercise.Model
                 data = task.Result;
             }
             data = svc.GetDataFromFile();
-            return JsonConvert.DeserializeObject<Facts>(data);
+            var facts = JsonConvert.DeserializeObject<Facts>(data);
+            facts.rows.RemoveAll(x => string.IsNullOrEmpty(x.title) || (string.IsNullOrEmpty(x.description) && !string.IsNullOrEmpty(x.imageHref)));
+            return facts;
         }
     }
 }

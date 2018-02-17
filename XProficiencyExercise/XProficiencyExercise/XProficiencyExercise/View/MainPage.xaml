@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XProficiencyExercise"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="XProficiencyExercise.MainPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label 
+            Grid.Row="0" 
+            Grid.ColumnSpan="2" 
+            Text="{Binding Title}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            LineBreakMode="WordWrap"/>
+        <StackLayout Grid.Row="1" Grid.ColumnSpan="2">
+            <ListView x:Name="listView"
+                HasUnevenRows ="True"   
+                ItemsSource="{Binding Facts}"
+                VerticalOptions="FillAndExpand"
+                IsPullToRefreshEnabled="True"
+                CachingStrategy ="RecycleElement">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ContentView>
+                                <StackLayout Padding="10">
+                                    <Label 
+                                        TextColor="#437fab" 
+                                        FontAttributes="Bold" 
+                                        FontSize="Small" 
+                                        Text="{Binding title}"/>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="60"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0"
+                                               VerticalOptions="FillAndExpand"
+                                               HorizontalOptions="FillAndExpand"
+                                               Text="{Binding description}" 
+                                               FontSize="Micro"/>
+                                        <forms:CachedImage Grid.Column="1"  
+                                               Source="{Binding imageHref}"  
+                                               Aspect="AspectFit"
+                                               WidthRequest="60"
+                                               HeightRequest="60">
+                                        </forms:CachedImage>
+                                    </Grid>
+                                </StackLayout>
+                            </ContentView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <Button Grid.Row="2" 
+                Grid.Column="0" 
+                Text="Refresh" 
+                BackgroundColor="Black" 
+                TextColor="White"
+                Command="{Binding RefreshCommand}"/>
+        <Button Grid.Row="2" 
+                Grid.Column="1" 
+                Text="Sort"
+                BackgroundColor="Black" 
+                TextColor="White"
+                Command="{Binding SortCommand}"/>
+    </Grid>
+</ContentPage>
