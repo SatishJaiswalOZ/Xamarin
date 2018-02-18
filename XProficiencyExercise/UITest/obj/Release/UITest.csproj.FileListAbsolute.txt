@@ -1,4 +1,3 @@
-C:\GitProjects\Xamarin\XProficiencyExercise\UITest\bin\Release\JsonSampleData\SampleData.json
 C:\GitProjects\Xamarin\XProficiencyExercise\UITest\bin\Release\UITest.dll
 C:\GitProjects\Xamarin\XProficiencyExercise\UITest\bin\Release\UITest.pdb
 C:\GitProjects\Xamarin\XProficiencyExercise\UITest\bin\Release\nunit.framework.dll

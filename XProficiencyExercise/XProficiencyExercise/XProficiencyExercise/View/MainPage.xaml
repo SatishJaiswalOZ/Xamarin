@@ -13,7 +13,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label 
+        <Label AutomationId="lblHeaderTitle"
             Grid.Row="0" 
             Grid.ColumnSpan="2" 
             Text="{Binding Title}"
@@ -31,8 +31,9 @@
                     <DataTemplate>
                         <ViewCell>
                             <ContentView>
-                                <StackLayout Padding="10">
-                                    <Label 
+                                <StackLayout 
+                                    Padding="10">
+                                    <Label AutomationId="lblTitle" 
                                         TextColor="#437fab" 
                                         FontAttributes="Bold" 
                                         FontSize="Small" 
@@ -45,12 +46,14 @@
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="60"/>
                                         </Grid.ColumnDefinitions>
-                                        <Label Grid.Column="0"
+                                        <Label AutomationId="lblDescription" 
+                                               Grid.Column="0"
                                                VerticalOptions="FillAndExpand"
                                                HorizontalOptions="FillAndExpand"
                                                Text="{Binding description}" 
                                                FontSize="Micro"/>
-                                        <forms:CachedImage Grid.Column="1"  
+                                        <forms:CachedImage AutomationId="cImage"
+                                               Grid.Column="1"  
                                                Source="{Binding imageHref}"  
                                                Aspect="AspectFit"
                                                WidthRequest="60"
