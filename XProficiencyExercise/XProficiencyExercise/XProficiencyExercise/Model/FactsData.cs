@@ -22,6 +22,8 @@ namespace XProficiencyExercise.Model
             }
             data = svc.GetDataFromFile();
             var facts = JsonConvert.DeserializeObject<Facts>(data);
+
+            //fixes done as part of Unit testing not to show item without title & below condition.
             facts.rows.RemoveAll(x => string.IsNullOrEmpty(x.title) || (string.IsNullOrEmpty(x.description) && !string.IsNullOrEmpty(x.imageHref)));
             return facts;
         } 
