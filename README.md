@@ -28,3 +28,6 @@ Notes:
     Melbourne so early settlement issues.
     
   8.Please restore nuget to resolve any dependencies & use Emulator - Android 7.1.1 API Level 25, CPU/ABI Google APIs Intel Atom(x86_64)
+  
+  9.Code commit is done via 2 email ids of mine i.e. itprofessional.satish@gmail.com & satish.131326.pr@gmail.com because of   
+    earlier & new account of GitHub tool & Visual studio account.So I'm the only contributor with 2 different accounts.
