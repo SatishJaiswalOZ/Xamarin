@@ -7,6 +7,8 @@ namespace XProficiencyExercise
 		public App ()
 		{
 			InitializeComponent();
+
+            //for now assume this MainPage is common to both Android & iOS so kept in .NET Standard component.
 			MainPage = new MainPage();
 		}
 

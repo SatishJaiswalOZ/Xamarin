@@ -1,0 +1,10 @@
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\bin\Debug\UITest.dll
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\bin\Debug\UITest.pdb
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\bin\Debug\nunit.framework.dll
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\bin\Debug\Xamarin.UITest.dll
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\bin\Debug\nunit.framework.xml
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\bin\Debug\Xamarin.UITest.xml
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\obj\Debug\UITest.csprojResolveAssemblyReference.cache
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\obj\Debug\UITest.csproj.CoreCompileInputs.cache
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\obj\Debug\UITest.dll
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\obj\Debug\UITest.pdb

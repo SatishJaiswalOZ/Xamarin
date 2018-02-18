@@ -1,31 +1,28 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using XProficiencyExercise.Model;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace XProficiencyExercise.ViewModel
 {
-    class MainViewModel : INotifyPropertyChanged
+    public class MainViewModel : INotifyPropertyChanged
     {
         #region Attributes
         private FactsData model = new FactsData();
         private string title = string.Empty;
         private Facts mdata;
         private bool isAscending;
+        private ObservableCollection<Fact> dataItems;
         #endregion
 
         #region Constructor
         public MainViewModel()
         {
-            mdata = model.GetFacts(true);
+            mdata = FactsData.GetFacts(true);
             Title = mdata.title;
 
             RefreshCommand = new Command(() =>
@@ -38,34 +35,18 @@ namespace XProficiencyExercise.ViewModel
                 sort();
             });
             Facts = new ObservableCollection<Fact>(mdata.rows);
-            //foreach (var fact in mdata.rows)
-            //{
-            //    if (!string.IsNullOrEmpty(fact.title))
-            //    {
-            //        if (!string.IsNullOrEmpty(fact.description) && !string.IsNullOrEmpty(fact.imageHref))
-            //        {
-            //            Fact f = new Fact()
-            //            {
-            //                description = fact.description,
-            //                imageHref = fact.imageHref,
-            //                title = fact.title
-            //            };
-            //            Facts.Add(f);
-            //        }
-            //    }
-            //}
         }
         #endregion
 
         #region Properties
-        private ObservableCollection<Fact> dataItems;
         /// <summary>
         /// Get data about facts
         /// </summary>
-        public ObservableCollection<Fact> Facts {
+        public ObservableCollection<Fact> Facts
+        {
             get { return dataItems ?? (dataItems = new ObservableCollection<Fact>()); }
             set { dataItems = value; RaisedPropertyChanged(); }
-        } 
+        }
 
         /// <summary>
         /// Get title
@@ -94,13 +75,21 @@ namespace XProficiencyExercise.ViewModel
         }
         #endregion
 
+        #region Others
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void RaisedPropertyChanged([CallerMemberName] string caller = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(caller));
+        }
+
         private void sort()
         {
             List<Fact> sortedData;
             if (!isAscending)
             {
                 isAscending = true;
-                sortedData= mdata.rows.OrderBy(item => item.title).ToList<Fact>();
+                sortedData = mdata.rows.OrderBy(item => item.title).ToList<Fact>();
             }
             else
             {
@@ -114,17 +103,11 @@ namespace XProficiencyExercise.ViewModel
 
         private void refresh()
         {
-            var freshData = model.GetFacts(true);
+            var freshData = FactsData.GetFacts(true);
             Title = freshData.title;
+
+            //initialize at the launch
             Facts = new ObservableCollection<Fact>(freshData.rows);
-        }
-
-        #region Others
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void RaisedPropertyChanged([CallerMemberName] string caller = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(caller));
         }
         #endregion
     }

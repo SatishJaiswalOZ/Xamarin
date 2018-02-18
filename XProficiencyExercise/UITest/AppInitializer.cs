@@ -14,6 +14,7 @@ namespace UITest
             {
                 return ConfigureApp
                     .Android
+                    .ApkFile("../../../XProficiencyExercise/XProficiencyExercise.Android/bin/Release/com.companyname.XProficiencyExercise-Signed.apk")
                     .StartApp();
             }
 

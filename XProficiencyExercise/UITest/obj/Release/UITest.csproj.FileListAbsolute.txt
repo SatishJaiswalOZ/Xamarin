@@ -1,0 +1,15 @@
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\bin\Release\JsonSampleData\SampleData.json
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\bin\Release\UITest.dll
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\bin\Release\UITest.pdb
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\bin\Release\nunit.framework.dll
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\bin\Release\Xamarin.UITest.dll
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\bin\Release\XProficiencyExercise.Android.dll
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\bin\Release\XProficiencyExercise.dll
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\bin\Release\XProficiencyExercise.Android.pdb
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\bin\Release\nunit.framework.xml
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\bin\Release\Xamarin.UITest.xml
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\bin\Release\XProficiencyExercise.pdb
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\obj\Release\UITest.csprojResolveAssemblyReference.cache
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\obj\Release\UITest.csproj.CoreCompileInputs.cache
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\obj\Release\UITest.dll
+C:\GitProjects\Xamarin\XProficiencyExercise\UITest\obj\Release\UITest.pdb

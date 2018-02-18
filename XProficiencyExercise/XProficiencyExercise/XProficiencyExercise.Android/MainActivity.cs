@@ -1,10 +1,7 @@
 ﻿using System;
-
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
 using Android.Content;
 using FFImageLoading.Forms.Droid;
@@ -12,7 +9,12 @@ using FFImageLoading;
 
 namespace XProficiencyExercise.Droid
 {
-    [Activity(Label = "XProficiencyExercise", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(
+        Label = "XProficiencyExercise", 
+        Icon = "@drawable/icon", 
+        Theme = "@style/MainTheme", 
+        MainLauncher = true, 
+        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
@@ -23,6 +25,9 @@ namespace XProficiencyExercise.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+
+            //many other configuration do exist for this control that can smoothen scrolling,file caching,
+            //lazy loading of image etc.
             CachedImageRenderer.Init(true);
             LoadApplication(new App());
         }

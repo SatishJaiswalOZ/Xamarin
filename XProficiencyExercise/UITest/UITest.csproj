@@ -59,5 +59,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XProficiencyExercise\XProficiencyExercise.Android\XProficiencyExercise.Android.csproj">
+      <Project>{7dbae48b-3c8e-4aae-998c-0b3b9ac8330d}</Project>
+      <Name>XProficiencyExercise.Android</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

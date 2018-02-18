@@ -11,13 +11,10 @@ namespace XProficiencyExercise
 {
 	public partial class MainPage : ContentPage
 	{
-        MainViewModel vm;
-
 		public MainPage()
 		{
 			InitializeComponent();
-            vm = new MainViewModel();
-            BindingContext = vm;
+            BindingContext = new MainViewModel();
         }
     } 
 }
